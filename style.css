@@ -1,0 +1,36 @@
+body{
+	background: grey;
+}
+#global_wrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+#rps{
+	min-width: 800px;
+}
+.arena{
+	height: 250px;
+	position: relative;
+}
+.arena .overlay{
+	position: absolute;
+	left: 100px;
+	top: 50px;
+	font-size: 400%;
+	text-align: center;
+}
+.card{
+	display: inline-block;
+	margin: 10px;
+}
+.card.selectable{
+	cursor: pointer;
+}
+.card img{
+	border: solid white;
+	border-radius: 5px;
+}
+.card.selectable img:hover{
+	border: solid red;
+}
