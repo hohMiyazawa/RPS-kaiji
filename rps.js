@@ -300,10 +300,10 @@ function restart(){
 	button.onclick = start_game;
 
 	create("h2","heading","Rules",instructions);
-	create("p","rule","You're playing Rock, Paper, Scissors agains a bot",instructions);
+	create("p","rule","You're playing Rock, Paper, Scissors against a bot",instructions);
 	create("p","rule","There will be multiple rounds. The game goes on until anyone has a lead of 7 wins",instructions);
 	create("p","rule","The bot doesn't make completely random decisions, it's trying to be clever",instructions);
-	create("p","rule","You can consistently beat the bot by beeing more clever",instructions);
+	create("p","rule","You can consistently beat the bot by being more clever",instructions);
 	create("hr",false,false,instructions);
 	create("p","rule","Q: \"What happens if I use a random number generator instead of playing by myself?\"",instructions);
 	create("p","rule","A: You will have a 50% of winning. But it's possible to do better.",instructions);
