@@ -193,6 +193,7 @@ function start_game(){
 	let p_wins = create("span",false,player_wins,results);
 	create("span",false," Bot wins: ",results);
 	let b_wins = create("span",false,bot_wins,results);
+	create("span",false," (7 ahead needed to win): ",results);
 
 	let rock = create("div",["rock","card","selectable"],false,game);
 	rock.title = "Rock";
