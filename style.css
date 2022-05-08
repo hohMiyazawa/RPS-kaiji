@@ -10,7 +10,7 @@ body{
 	min-width: 800px;
 }
 .arena{
-	height: 250px;
+	height: 300px;
 	position: relative;
 }
 .arena .overlay{
