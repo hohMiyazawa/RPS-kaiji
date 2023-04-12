@@ -128,6 +128,7 @@ let stats = {
 	self_1: new Array(9).fill(1),
 	self_2: new Array(27).fill(1),
 	self_3: new Array(81).fill(1),
+	self_3default: [8,16,4,8,6,24,1,4,4,4,6,5,2,3,10,6,24,18,2,1,1,6,4,1,1,4,7,19,13,3,5,8,21,2,5,6,10,8,1,5,8,4,3,6,7,4,4,3,20,10,3,3,14,11,1,8,2,2,1,3,1,3,2,21,20,7,12,6,2,2,3,3,5,1,2,22,6,4,4,14,19],
 	history: [],
 	rounds: 0,
 }
@@ -156,7 +157,7 @@ function update_stats(pick,bot){
 let models = [
 	{
 		name: "random",
-		weight: 1,
+		weight: 0.2,
 		mod: function(){
 			let chances = [1/3,1/3,1/3];
 			return chances;
@@ -248,6 +249,27 @@ let models = [
 			let r = stats.self_3[index + 0];
 			let p = stats.self_3[index + 1];
 			let s = stats.self_3[index + 2];
+			let count = r + p + s;
+			if(count === 3){
+				index = stats.prev * 3 + (stats.history[stats.history.length - 3] || 0) * 9;
+				r = stats.self_2[index + 0];
+				p = stats.self_2[index + 1];
+				s = stats.self_2[index + 2];
+				count = r + p + s;
+				return [r/count,p/count,s/count];
+			}
+			let chances = [r/count,p/count,s/count];
+			return chances;
+		}
+	},
+	{
+		name: "self_3default",
+		weight: 1,
+		mod: function(){
+			let index = stats.prev * 3 + (stats.history[stats.history.length - 3] || 0) * 9 + (stats.history[stats.history.length - 5] || 0) * 27;
+			let r = stats.self_3default[index + 0];
+			let p = stats.self_3default[index + 1];
+			let s = stats.self_3default[index + 2];
 			let count = r + p + s;
 			let chances = [r/count,p/count,s/count];
 			return chances;
